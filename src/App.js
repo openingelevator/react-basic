@@ -1,14 +1,12 @@
-import React from "react"
+import { useEffect, useState } from "react"
 
-class App extends React.Component {
 
-  render () {
-    return (
-      <div>
-        <Son getSonMsg={this.getSonMsg}></Son>
-      </div>
-    )
-  }
+function App () {
 
+  return (
+    <div>
+
+    </div>
+  )
 }
 export default App
