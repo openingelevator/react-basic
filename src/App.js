@@ -1,31 +1,25 @@
-import React from "react"
-// 引入两个组件
-import Home from "./Home"
-import About from "./About"
+// 一级路由
+import Login from "./Login"
+import Layout from "./Layout"
 
-import { HashRouter, BrowserRouter, Link, Routes, Route } from 'react-router-dom'
-// 核心组件BrowserRouter
-// 作用：包裹整个应用
-// 两种常用Router
-// HashRouter 使用URL的哈希值实现
-// BrowserRouter 使用H5的history.pushState API实现
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Board from "./Board"
+import Article from "./Article"
+import NotFound from "./NotFound"
 
-// Link组件
-// 用于指定导航链接 完成路由跳转
-
-// Routes
-// 提供一个路由出口 满足条件的路由组件就会渲染到组件内部
-// Route
-// 指定导航链接 完成路由跳转
-// path属性指定匹配的路径地址 element属性指定要渲染的组件
 function App () {
   return (
     <BrowserRouter>
-      <Link to="/">首页</Link>
-      <Link to="/about">关于</Link>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/about' element={<About></About>}></Route>
+        <Route path="/" element={<Layout></Layout>}>
+          {/* 定义二级路由嵌套 */}
+          {/* 添加index 该组件会成为默认渲染的二级路由 */}
+          <Route index path="board" element={<Board></Board>}></Route>
+          <Route path="article" element={<Article></Article>}></Route>
+        </Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        {/* 当所有路径都没有匹配时 显示未找到 */}
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </BrowserRouter>
   )
