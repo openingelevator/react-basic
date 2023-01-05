@@ -61,6 +61,19 @@ function App () {
     document.title = count
     console.log(name)
   }, [count, name])
+
+  // useEffect发送网络请求
+  // useEffect(() => {
+  //   // 发送请求
+  //   function loadData () {
+  //     fetch('http://geek.itheima.net/v1_0/channels').then(
+  //       response => response.json()
+  //     ).then(
+  //       data => console.log(data)
+  //     )
+  //   }
+  //   loadData()
+  // }, [])
   return (
     <div>
       <button onClick={() => setCount(count + 1)}>{count}</button>
